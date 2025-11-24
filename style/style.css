@@ -371,3 +371,70 @@ a {
     width: 95%;
   }
 }
+
+/* View (превью картинки) */
+.view {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.view.active {
+  display: flex;
+}
+.view img {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Кнопка закрытия в модальном окне */
+.view__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Адаптация */
+@media (max-width: 710px) {
+  .view {
+    padding: 12px;
+  }
+  .view img {
+    max-width: 95%;
+    max-height: 75vh;
+  }
+  .view__close {
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+  }
+}
+@media (max-width: 500px) {
+  .view img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 6px;
+  }
+  .view__close {
+    font-size: 22px;
+  }
+}
+@media (max-height: 500px) {
+  .view img {
+    max-height: 60vh;
+  }
+}
